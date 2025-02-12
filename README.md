@@ -140,50 +140,55 @@ The goal of this project is to **simulate stock trading using real-world stock d
 6️⃣ **Transaction History** → Users can see past trades.  
 7️⃣ *(Stretch Goal)* **Leaderboard** → Compare performance with other users.  
 
-      +------------------------+
-      |  Start (Sign up/Login) |
-      +-----------+------------+
-                  |
-                  v
-      +------------------------+
-      | Virtual Wallet ($10,000) |
-      +-----------+------------+
-                  |
-                  v
-      +----------------------+
-      |  Search for Stocks   |
-      +-----------+----------+
-                  |
-                  v
-      +----------------------+
-      | View Stock Details   |
-      +-----------+----------+
-                  |
-                  v
-      +----------------------+
-      |   Buy/Sell Stocks    |
-      +-----------+----------+s
-                  |
-                  v
-      +----------------------+
-      | Confirm Transaction  |
-      +-----------+----------+
-                  |
-                  v
-      +------------------------------+
-      | Update Balance & Portfolio   |
-      +-----------+------------------+
-          |                   |
-          v                   v
+```markdown
+## 📌 User Flowchart
+Below is the user flow for the Stock Exchange Simulation Website:
+
+<pre>
++------------------------+
+|  Start (Sign up/Login) |
++-----------+------------+
+            |
+            v
++------------------------+
+| Virtual Wallet ($10,000) |
++-----------+------------+
+            |
+            v
++----------------------+
+|  Search for Stocks   |
++-----------+----------+
+            |
+            v
++----------------------+
+| View Stock Details   |
++-----------+----------+
+            |
+            v
++----------------------+
+|   Buy/Sell Stocks    |
++-----------+----------+
+            |
+            v
++----------------------+
+| Confirm Transaction  |
++-----------+----------+
+            |
+            v
++------------------------------+
+| Update Balance & Portfolio   |
++-----------+------------------+
+        |                   |
+        v                   v
 +------------------+   +----------------------+
 | Track Portfolio  |   | View Transaction History |
 +-------+----------+   +-------------+--------+
         |                              |
         v                              v
-      +----------------------+       +--------+
-      |  Leaderboard (Goal)  | -----> |  End  |
-      +----------------------+
-
++----------------------+       +--------+
+|  Leaderboard (Goal)  | -----> |  End  |
++----------------------+
+</pre>
 
 ---
 
