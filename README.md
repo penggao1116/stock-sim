@@ -140,7 +140,6 @@ The goal of this project is to **simulate stock trading using real-world stock d
 6️⃣ **Transaction History** → Users can see past trades.  
 7️⃣ *(Stretch Goal)* **Leaderboard** → Compare performance with other users.  
 
-```markdown
 ## 📌 User Flowchart
 Below is the user flow for the Stock Exchange Simulation Website:
 
