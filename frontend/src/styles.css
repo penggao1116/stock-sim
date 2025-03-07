@@ -1,0 +1,108 @@
+/* 1. Global Resets & Defaults */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 2. Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #1f2937;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+}
+.navbar a {
+  margin-right: 1.25rem;
+  color: #fff;
+}
+.navbar a:hover {
+  color: #e5e7eb;
+}
+.navbar .spacer {
+  flex: 1;
+}
+.navbar button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.navbar button:hover {
+  color: #e5e7eb;
+}
+
+/* 3. Container & Sections */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.section-title {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* 4. Hero */
+.home-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 5. Cards & Grids */
+.card {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+.trending-stocks,
+.my-stocks-holdings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* 6. Forms */
+input, select, button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+input:focus, select:focus {
+  border-color: #2563eb;
+}
+button {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #1d4ed8;
+}
+
+/* 7. Utility */
+.text-center {
+  text-align: center;
+}
