@@ -54,7 +54,7 @@ function LiveUpdatingChart({ symbol }) {
     const fetchCurrentPrice = async () => {
       try {
         const response = await axios.get(
-          `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_KEY}`
+          `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${process.env.FINNHUB_API_KEY}`
         );
         if (response.data && response.data.c) {
           const currentPrice = response.data.c;
