@@ -1,7 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { authenticate } = require('../middlewares/authMiddleware');
+const { buyStock, sellStock } = require('../controllers/transactionController');
 const pool = require('../db');
+
+// POST /api/transactions/buy
+router.post('/buy', authenticate, buyStock);
+
+// POST /api/transactions/sell
+router.post('/sell', authenticate, sellStock);
 
 router.get('/history', authenticate, async (req, res) => {
   try {
