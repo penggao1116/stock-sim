@@ -4,26 +4,32 @@ const pool = require('../db');
 
 exports.signup = async (req, res) => {
   const { username, email, password } = req.body;
+
   try {
-    // Check if user already exists
-    const userCheck = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (userCheck.rowCount > 0) {
-      return res.status(400).json({ message: 'User already exists' });
-    }
+      // Check if password is at least 6 characters
+      if (!password || password.length < 6) {
+          return res.status(400).json({ message: "Password must be at least 6 characters long" });
+      }
 
-    // Hash password
-    const passwordHash = await bcrypt.hash(password, 10);
+      // Check if user already exists
+      const userCheck = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+      if (userCheck.rowCount > 0) {
+          return res.status(400).json({ message: 'User already exists' });
+      }
 
-    // Insert new user (balance defaults to 10000)
-    const result = await pool.query(
-      'INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3) RETURNING id, balance',
-      [username, email, passwordHash]
-    );
+      // Hash password
+      const passwordHash = await bcrypt.hash(password, 10);
 
-    return res.status(201).json({ message: 'User created', userId: result.rows[0].id, balance: result.rows[0].balance });
+      // Insert new user (balance defaults to 10000)
+      const result = await pool.query(
+          'INSERT INTO users (username, email, password_hash, balance) VALUES ($1, $2, $3, $4) RETURNING id, balance',
+          [username, email, passwordHash, 10000]
+      );
+
+      return res.status(201).json({ message: 'User created', userId: result.rows[0].id, balance: result.rows[0].balance });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: 'Error creating user' });
+      console.error(error);
+      return res.status(500).json({ message: 'Error creating user' });
   }
 };
 
