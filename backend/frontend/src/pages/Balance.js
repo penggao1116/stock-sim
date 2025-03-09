@@ -26,6 +26,19 @@ function Balance({ token }) {
 
   // Handle adding or withdrawing funds
   const handleAdjustBalance = async (delta) => {
+    if (typeof amount !== 'number') {
+      return res.status(400).json({ message: 'Amount must be a valid number' });
+    }
+  
+    // 2. Disallow zero or negative amounts
+    if (amount <= 0) {
+      return res.status(400).json({ message: 'Amount must be greater than zero' });
+    }
+    // 3. Disallow withdrawing more than the current balance
+    if (delta < 0 && Math.abs(delta) > balance) {
+      return res.status(400).json({ message: 'Insufficient funds' });
+    }
+    
     try {
       const res = await API.put('/users/balance', { amount: delta });
       alert(`Balance updated! New balance: $${parseFloat(res.data.newBalance).toFixed(2)}`);
