@@ -2,6 +2,7 @@ const axios = require('axios');
 const pool = require('../db');
 
 exports.buyStock = async (req, res) => {
+  console.log("Received request:", req.body);
   const userId = req.userId;
   const { symbol, quantity } = req.body;
 
