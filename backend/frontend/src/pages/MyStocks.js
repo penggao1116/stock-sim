@@ -33,7 +33,7 @@ function MyStocks({ token }) {
     }
     try {
       if (action === 'BUY') {
-        await API.post('/transactions/buy', { userId, symbol, quantity: Number(quantity) });
+        await API.post('/transactions/buy', { symbol, quantity: Number(quantity) });
       } else {
         await API.post('/transactions/sell', { symbol, quantity: Number(quantity) });
       }
